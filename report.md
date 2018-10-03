@@ -67,3 +67,50 @@ This model is underfitting as it does not adequately model the curves in the raw
 By roughly tracing the raw test points from the previous example, one can hypothesize that the source polynomial is of roughly degree 10 or 11. It is difficult to be very precise about such a response due to the gaussian noise that has been added to the polynomial.
 
 ***
+
+## Question 3: Stochastic Gradient Descents
+
+### 1. b. MSE through Epochs
+
+![https://puu.sh/BFg78/9d4fb96f3b.png](https://puu.sh/BFg78/9d4fb96f3b.png)
+
+### 2. a. Validation Performance and Step Sizes
+| Step Size | MSE on Validation Set |
+|-----------|-----------------------|
+| 1.00E+00  | 3.357589              |
+| 1.00E-01  | 0.07414               |
+| 1.00E-02  | 0.073831              |
+| 1.00E-03  | 0.074067              |
+| 1.00E-04  | 0.07407               |
+| 1.00E-05  | 0.079338              |
+| 1.00E-06  | 0.392337              |
+| 1.00E-07  | 22.30903              |
+| 1.00E-08  | 34.75164              |
+| 1.00E-09  | 36.32894              |
+| 1.00E-10  | 36.49057              |
+
+### 2. b. Test Performance on Chosen Step Size (1.00E-02)
+
+**Mean Squared Error (Test Set): 0.071703**
+
+### 3. Epoch Visualizations:
+
+**Epoch no. 500**:
+
+![https://puu.sh/BFhhr/7900e493b5.png](https://puu.sh/BFhhr/7900e493b5.png)
+
+**Epoch no. 1000**:
+
+![https://puu.sh/BFhvo/24e4af2925.png](https://puu.sh/BFhvo/24e4af2925.png)
+
+**Epoch no. 2500**:
+
+![https://puu.sh/BFhwj/01e8923bf4.png](https://puu.sh/BFhwj/01e8923bf4.png)
+
+**Epoch no. 4000**:
+
+![https://puu.sh/BFhyE/2c85217caa.png](https://puu.sh/BFhyE/2c85217caa.png)
+
+**Epoch no. 5000**:
+
+![https://puu.sh/BFhAR/bd89c3d488.png](https://puu.sh/BFhAR/bd89c3d488.png)
