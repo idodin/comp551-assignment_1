@@ -39,24 +39,71 @@ Validation Data MSE:
 
 This model is overfitting, as is made clear on the second plot whereby our predictions for the validation set drop rapidly and ignore the last green point (raw validation data). This causes a large value for the Mean Square Error of this model.
 
-### 2. b. Regularization Comparisions
+### 2. a. Regularization Comparisions:
+
 
 **Values for different lambda values**:
 
-TODO
+| Lambda | Training Data MSE | Validation Data MSE |
+|--------|-------------------|---------------------|
+| 0      | 6.475060154       | 1415.766785         |
+| 0.01   | 8.80761088        | 9.16076878          |
+| 0.02   | 8.857656678       | 9.135098785         |
+| 0.03   | 8.891680808       | 9.147204619         |
+| 0.04   | 8.917422825       | 9.169372782         |
+| 0.1    | 8.99721275        | 9.291605149         |
+| 0.2    | 9.04593155        | 9.397037146         |
+| 0.3    | 9.070987861       | 9.454922037         |
+| 0.4    | 9.089891029       | 9.496389925         |
+| 1      | 9.205040171       | 9.699253212         |
+| 2      | 9.506596554       | 10.15234723         |
+| 3      | 9.930836797       | 10.76993131         |
+
+**Plots for different Lambda Values**:
+
+**Lambda = 0**:
+
+![https://puu.sh/BFpzx/3f7defa49d.png](https://puu.sh/BFpzx/3f7defa49d.png)
+
+**Lambda = 0.01**:
+
+![https://puu.sh/BFpAe/84de000e8c.png](https://puu.sh/BFpAe/84de000e8c.png)
+
+**Lambda = 0.02**:
+
+![https://puu.sh/BFpAC/7e0389fee3.png](https://puu.sh/BFpAC/7e0389fee3.png)
+
+**Lambda = 0.1**:
+
+![https://puu.sh/BFpB8/107828e37a.png](https://puu.sh/BFpB8/107828e37a.png)
+
+**Lambda = 0.2**:
+
+![https://puu.sh/BFpBx/2ec6ae6983.png](https://puu.sh/BFpBx/2ec6ae6983.png)
+
+**Lambda = 1**:
+
+![https://puu.sh/BFpBY/ee28039cfb.png](https://puu.sh/BFpBY/ee28039cfb.png)
+
+### 2. b. Regularization Constant Choice:
+
+
+**Chosen lambda value:  0.02**
+
+
 
 ```
 Training Data MSE:
-9.20504017090436
+8.857656677631018
 Validation Data MSE:
-9.699253211677858
+9.135098784694314
 Testing Data MSE:
-128.56429805939945
+130.84316654182413
 ```
 
 ### 2. c. Data Visualization
 
-![https://puu.sh/BEgSi/99800b3e6c.png](https://puu.sh/BEgSi/99800b3e6c.png)
+![https://puu.sh/BFpG0/aeb5a7d39e.png](https://puu.sh/BFpG0/aeb5a7d39e.png)
 
 ### 2. d. Over or underfitting
 
@@ -67,6 +114,7 @@ This model is underfitting as it does not adequately model the curves in the raw
 By roughly tracing the raw test points from the previous example, one can hypothesize that the source polynomial is of roughly degree 10 or 11. It is difficult to be very precise about such a response due to the gaussian noise that has been added to the polynomial.
 
 ***
+
 
 ## Question 3: Stochastic Gradient Descents
 
@@ -114,3 +162,13 @@ By roughly tracing the raw test points from the previous example, one can hypoth
 **Epoch no. 5000**:
 
 ![https://puu.sh/BFhAR/bd89c3d488.png](https://puu.sh/BFhAR/bd89c3d488.png)
+
+## Question 4 - Real Life Dataset
+
+### 1. a. Filling in missing attributes with the mean.
+
+The mean is not necessarily a good choice to fill in missing attributes. The first such case is in non-predictive attributes such as location, in which a mean is not representative of anything (i.e. the mean of location codes will not actually give us some location that is representative of the rest of the data set). The second case is in datasets with a large amount of outliers, for example, consider a dataset where 90% of the points lie in the range [0,1000] and 10% lie above 1.00E09, the mean would give a significantly larger number than the former 90% and is thus not a good representation of the majority of the dataset.
+
+### 1. b/c. Other choices for filling.
+
+The median is another good choice for filling in the dataset, particularly in the case of a dataset with outliers that outlie by a significantly large amount.
